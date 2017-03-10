@@ -6,7 +6,7 @@
   	<servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
   	<init-param>
   		<param-name>org.restlet.application</param-name>
-  		<param-value>Architecture.SimpleRestServiceApplication</param-value>
+  		<param-value>analyArchitecture.SimpleRestServiceApplication</param-value>
   		
   	</init-param>
   	

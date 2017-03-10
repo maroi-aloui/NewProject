@@ -1,4 +1,4 @@
-package Architecture;
+package analyArchitecture;
 
 import org.restlet.Application;
 import org.restlet.Restlet;

@@ -1,4 +1,4 @@
-package Architecture;
+package analyArchitecture;
 
 import org.restlet.data.Form;
 import org.restlet.resource.Put;

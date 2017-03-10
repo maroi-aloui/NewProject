@@ -1,4 +1,4 @@
-package Architecture;
+package analyArchitecture;
 
 public class LogIngestorRessource {
 
