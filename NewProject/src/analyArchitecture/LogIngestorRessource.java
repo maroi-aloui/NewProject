@@ -18,7 +18,7 @@ public class LogIngestorRessource extends ServerResource {
 	@Put
 	@Path("/put")
     public void putLogIngestor() {
-       
+      
     }
 	
 	@Post

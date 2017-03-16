@@ -32,5 +32,10 @@ public class AnalyticModelRessource extends ServerResource {
     public void deleteModel() {
        
     }
+	
+	public LogIngestorRessource getLogIngestor(){
+		return new LogIngestorRessource ();
+	       
+	    }
 }
 
