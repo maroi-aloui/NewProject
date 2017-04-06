@@ -4,10 +4,13 @@ import org.restlet.Component;
 import org.restlet.data.Protocol;
 import org.restlet.resource.ClientResource;
 
+import com.google.gson.Gson;
+
 import analyArchitecture.RessourceApplication;
 
-
+import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Field;
 
 public class AnalyticMain {
@@ -19,7 +22,7 @@ public class AnalyticMain {
 
 	    // Add a new HTTP server listening on port 8183.  
 	    
-	    component.getServers().add(Protocol.HTTP, 8482);  
+	    component.getServers().add(Protocol.HTTP, 819);  
 	  
 	    // Attach the sample application.  
 	    component.getDefaultHost().attach("/analyArchitecture",  
@@ -37,26 +40,42 @@ public class AnalyticMain {
         	*/
         
 	   //Debut generate Logs
-	     Logs obj = new Logs();
+	    Logs obj = Logs.generateNewLog();
+	
+	  
+	    /*
         Field[] fields = obj.getClass().getDeclaredFields();
+        FileWriter file = new FileWriter("c:/Logs/file3.json");
         for (Field field : fields)
         {
             field.setAccessible(true);
             System.out.println(field.getName() + " -> " + field.get(obj));
-            FileWriter file = new FileWriter("c:/Logs/file3.json");
-	    	file.write((int) field.get(obj));
+            
+	    	file.write((String) field.get(obj));
         	file.flush();
         }  
 	    // Fin LOgs
-	    
+	    */
 
-	     /*
+	     
 	    Gson gson = new Gson();
-	    Logs obj = new Logs();
+	   
+	    String json = gson.toJson(obj);
+	    
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter("c:/Logs/file.json"))) {
 
-		// 1. Java object to JSON, and save into a file
-		gson.toJson(obj, new FileWriter("c:/Logs/file.json"));
-	   	*/
+			bw.write(json);
+			System.out.println("Done");
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
+	    
+	    System.out.println(json);
+	    // System.exit(0); 
+	
 	  
 	    }
 	   
