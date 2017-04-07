@@ -1,6 +1,8 @@
 package analyArchitecture;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.MediaType;
 
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
@@ -17,7 +19,8 @@ public class LogIngestorRessource extends ServerResource {
 	
 	@Put
 	@Path("/put")
-    public String putLogIngestor() {
+	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public String putLogIngestor(Logs obj) {
       return "aloui";
     }
 	
